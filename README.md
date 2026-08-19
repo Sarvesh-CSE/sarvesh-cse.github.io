@@ -31,19 +31,40 @@ Colours, spacing, and fonts are CSS custom properties at the top of the
 
 ## Deploying to GitHub Pages
 
+The repo is already initialised and committed on `main`. Two steps remain.
+
+**1.** Create a new **public** repo on GitHub named exactly `Sarvesh-CSE.github.io`
+(github.com/new). Do not add a README, .gitignore, or licence — the repo must
+start empty.
+
+**2.** Push:
+
 ```bash
-git init && git add . && git commit -m "Initial site"
+git remote add origin https://github.com/Sarvesh-CSE/Sarvesh-CSE.github.io.git
+git push -u origin main
 ```
 
-Create a repo named `<username>.github.io` on GitHub, then:
+The site goes live at **https://sarvesh-cse.github.io** within about a minute.
+For a `<username>.github.io` repo, Pages turns itself on — no settings needed.
 
-```bash
-git remote add origin https://github.com/<username>/<username>.github.io.git
-git branch -M main && git push -u origin main
-```
+To update later: edit, then `git add -A && git commit -m "..." && git push`.
 
-Pages serves it at `https://<username>.github.io` within a minute or two.
-Netlify and Vercel also work — drag the folder into either dashboard.
+## Getting indexed by Google
+
+Being live is not the same as being findable. After the site is up:
+
+1. Go to [Google Search Console](https://search.google.com/search-console) and
+   add `https://sarvesh-cse.github.io/` as a **URL prefix** property.
+2. Verify ownership with the **HTML tag** method — Search Console gives you a
+   `<meta name="google-site-verification" ...>` tag. Paste it into `<head>` in
+   `index.html`, push, then click Verify.
+3. Submit `sitemap.xml` under **Sitemaps**.
+4. Use **URL Inspection** → *Request indexing* on the homepage.
+
+Indexing takes days to a few weeks. What actually moves ranking for a common
+name is inbound links: add the URL to your Google Scholar profile, LinkedIn,
+GitHub bio, ORCID, ResearchGate, and your BHU faculty page. Those links matter
+more than anything on the page itself.
 
 ## Before going live
 
