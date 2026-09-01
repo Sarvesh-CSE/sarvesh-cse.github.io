@@ -1,0 +1,55 @@
+name: Build CV
+
+# Compiles the CV on GitHub's servers, so it can be edited entirely in the
+# browser — no local LaTeX install and no local checkout needed.
+#
+# Edit cv/cv.tex on github.com (or press "." on the repo to open the web
+# editor), commit, and this workflow regenerates and commits cv.pdf about a
+# minute later.
+#
+# It builds cv/cv-public.tex, which defines \PUBLICBUILD and therefore drops
+# every section still marked \draftonly{} in cv.tex. Placeholder text cannot
+# reach the published PDF.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cv/cv.tex'
+      - 'cv/cv-public.tex'
+      - '.github/workflows/build-cv.yml'
+  workflow_dispatch:        # also runnable by hand from the Actions tab
+
+permissions:
+  contents: write           # needed to commit the rebuilt PDF back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile public CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv-public.tex
+          working_directory: cv
+          latexmk_use_pdflatex: true
+
+      - name: Move PDF to site root
+        run: |
+          mv cv/cv-public.pdf cv.pdf
+          ls -la cv.pdf
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- cv.pdf; then
+            echo "CV unchanged - nothing to commit."
+          else
+            git add cv.pdf
+            git commit -m "Rebuild CV from cv.tex"
+            git push
+            echo "Published updated cv.pdf"
+          fi

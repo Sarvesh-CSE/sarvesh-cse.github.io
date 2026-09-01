@@ -1,0 +1,11 @@
+% Public build of the CV.
+%
+% Defining \PUBLICBUILD flips cv.tex into public mode, which omits every
+% section still wrapped in \draftonly{} — so the [TO COMPLETE] prompts can
+% never reach the published PDF.
+%
+% Build this file, not cv.tex, to produce what goes on the website.
+% Both build.sh and .github/workflows/build-cv.yml compile this file.
+
+\def\PUBLICBUILD{}
+\input{cv.tex}

@@ -4,3 +4,4 @@ Thumbs.db
 cv/*
 !cv/cv.tex
 !cv/build.sh
+!cv/cv-public.tex
