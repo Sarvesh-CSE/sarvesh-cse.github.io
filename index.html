@@ -10,6 +10,10 @@
 <link rel="canonical" href="https://sarvesh-cse.github.io/">
 <meta property="og:url" content="https://sarvesh-cse.github.io/">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="https://sarvesh-cse.github.io/photo-2x.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary">
 <meta property="og:title" content="Sarvesh Pandey — Computer Science, BHU &amp; UC Irvine">
 <meta property="og:description" content="Assistant Professor at Banaras Hindu University. Fulbright-Nehru Postdoctoral Fellow at UC Irvine. Blockchain systems, privacy-preserving data management, query processing over IoT sensor data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +28,7 @@
   "familyName": "Pandey",
   "jobTitle": "Assistant Professor of Computer Science",
   "email": "mailto:sarveshpandey@bhu.ac.in",
+  "image": "https://sarvesh-cse.github.io/photo-2x.jpg",
   "affiliation": [
     { "@type": "CollegeOrUniversity", "name": "Banaras Hindu University" },
     { "@type": "CollegeOrUniversity", "name": "University of California, Irvine" }
@@ -79,6 +84,16 @@ nav ul a:hover{color:var(--accent)}
 @media(max-width:640px){ nav ul{display:none} }
 
 header.hero{padding:4.5rem 0 3rem; border-bottom:1px solid var(--rule)}
+.hero .wrap{display:flex; gap:2.25rem; align-items:flex-start}
+.portrait{
+  flex:0 0 auto; width:150px; height:150px; border-radius:50%;
+  object-fit:cover; background:var(--tag);
+  box-shadow:0 0 0 1px var(--rule), 0 6px 20px rgba(0,0,0,.10);
+}
+@media(max-width:640px){
+  .hero .wrap{flex-direction:column; gap:1.5rem}
+  .portrait{width:120px; height:120px}
+}
 .hero h1{
   font-family:Newsreader,Georgia,serif; font-weight:500; letter-spacing:-.02em;
   font-size:clamp(2.4rem,6vw,3.6rem); line-height:1.08; margin:0 0 .75rem;
@@ -167,6 +182,9 @@ footer p{max-width:none; margin:0}
 
 <header class="hero">
   <div class="wrap">
+    <img class="portrait" src="photo.jpg" srcset="photo.jpg 1x, photo-2x.jpg 2x"
+         width="150" height="150" alt="Sarvesh Pandey">
+    <div class="hero-body">
     <h1>Sarvesh Pandey</h1>
     <p class="roles"><strong>Assistant Professor of Computer Science</strong>, Banaras Hindu University, Varanasi</p>
     <p class="roles"><strong>Fulbright&ndash;Nehru Postdoctoral Fellow</strong>, University of California, Irvine &middot; 2024&ndash;2026</p>
@@ -181,6 +199,7 @@ footer p{max-width:none; margin:0}
       <a href="https://github.com/Sarvesh-CSE">GitHub</a>
       <a href="https://www.linkedin.com/in/sarveshbhu/">LinkedIn</a>
       <a href="mailto:sarveshpandey@bhu.ac.in">Email</a>
+    </div>
     </div>
   </div>
 </header>
