@@ -1,0 +1,222 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=0.82in,top=0.65in,bottom=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{RGB}{110,40,40}
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% ------------------------------------------------------------------
+% DRAFT vs PUBLIC
+%   \drafttrue  -> shows red [TO COMPLETE] prompts. For your own editing.
+%   \draftfalse -> omits any section still lacking real content.
+%                  This is what gets published at sarvesh-cse.github.io/cv.pdf
+% Build both with:  ./build.sh   (or see build.sh for the two commands)
+% ------------------------------------------------------------------
+\newif\ifdraft
+\ifdefined\PUBLICBUILD \draftfalse \else \drafttrue \fi
+
+% \todo{...} renders the prompt in draft mode, nothing in public mode
+\newcommand{\todo}[1]{\ifdraft{\small\textcolor{red}{[TO COMPLETE: #1]}}\fi}
+% \draftonly{...} drops a whole section from the public build
+\newcommand{\draftonly}[1]{\ifdraft #1\fi}
+
+\newcommand{\me}{\textbf{Sarvesh Pandey}}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{1.05em}%
+  {\normalsize\bfseries\uppercase{#1}}\\[-0.55em]%
+  \rule{\textwidth}{0.6pt}\\[0.35em]%
+}
+
+\newcommand{\cvrow}[2]{%
+  \begin{minipage}[t]{0.145\textwidth}\raggedright\small\textcolor{black!62}{#1}\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.835\textwidth}#2\end{minipage}\\[0.5em]%
+}
+
+\newcommand{\pub}[3]{%
+  \begin{minipage}[t]{0.045\textwidth}\raggedright\small #1\end{minipage}%
+  \begin{minipage}[t]{0.945\textwidth}#2\\{\small\itshape #3}\end{minipage}\\[0.34em]%
+}
+
+\begin{document}
+
+% ===================== HEADER =====================
+\begin{center}
+  {\LARGE\bfseries Sarvesh Pandey}\\[0.45em]
+  {\small
+    Assistant Professor, Department of Computer Science (MMV), Banaras Hindu University, Varanasi, India\\
+    Fulbright--Nehru Postdoctoral Fellow, University of California, Irvine (Nov 2024 -- Nov 2026)\\[0.4em]
+    \href{mailto:sarveshpandey@bhu.ac.in}{sarveshpandey@bhu.ac.in} \quad$\cdot$\quad
+    \href{https://sarvesh-cse.github.io}{sarvesh-cse.github.io} \quad$\cdot$\quad
+    \href{https://scholar.google.com/citations?user=eXeYCBgAAAAJ}{\textbf{Google Scholar}} \quad$\cdot$\quad
+    \href{https://dblp.org/pid/211/7543.html}{DBLP}
+  }
+\end{center}
+
+% ===================== RESEARCH INTERESTS =====================
+\cvsection{Research Interests}
+
+Blockchain systems and decentralized ledgers; privacy-preserving data management;
+database systems and transaction processing; crowdsourcing systems; query processing
+over IoT and sensor data.
+
+% ===================== APPOINTMENTS =====================
+\cvsection{Academic Appointments}
+
+\cvrow{2024 -- 2026}{
+  \textbf{Fulbright--Nehru Postdoctoral Research Fellow}\\
+  Donald Bren School of Information \& Computer Sciences,\\
+  University of California, Irvine, USA \quad {\small(Host: Prof.\ Sharad Mehrotra)}
+}
+
+\cvrow{2020 -- present}{
+  \textbf{Assistant Professor}, Department of Computer Science (MMV)\\
+  Banaras Hindu University, Varanasi, India
+}
+
+% ===================== EDUCATION =====================
+\cvsection{Education}
+
+\cvrow{2020}{
+  \textbf{Ph.D., Computer Science \& Engineering}\\
+  Madan Mohan Malaviya University of Technology, Gorakhpur, India\\
+  {\small Thesis: \emph{Resolving Conflicts amongst Distributed Real-Time Transactions}}\\
+  {\small Advisor: Prof.\ Udai Shanker}
+}
+
+\cvrow{2016}{
+  \textbf{M.Tech., Computer Science \& Engineering}\\
+  Madan Mohan Malaviya University of Technology, Gorakhpur, India
+}
+
+% ===================== HONOURS =====================
+\cvsection{Honours and Awards}
+
+\cvrow{2024}{\textbf{Fulbright--Nehru Postdoctoral Research Fellowship}, United States--India Educational Foundation (USIEF)}
+\cvrow{2014}{\textbf{All-India Rank 33}, CSIR NET--JRF, Engineering Sciences, Council of Scientific and Industrial Research, New Delhi}
+\cvrow{2014 -- 2020}{CSIR Junior Research Fellow (JRF) and Senior Research Fellow (SRF)}
+\cvrow{2019}{Best Research Poster Award, 3rd Malaviya Research Conclave (MRC-2019), MMMUT Gorakhpur}
+
+% ===================== CURRENT RESEARCH =====================
+\cvsection{Current Research}
+
+At UC Irvine, working with Prof.\ Sharad Mehrotra on the \textbf{TIPPERS} project
+(Testbed for IoT-based Privacy-Preserving PERvasive Spaces), addressing efficient
+query processing over heterogeneous sensor data in smart buildings without
+compromising the privacy of the individuals that data describes. Related directions
+include data processing in decentralized ledgers over geographically distributed data,
+access control within blockchain frameworks, blockchain-backed crowdsourcing, and
+embedding machine learning inside the database engine to accelerate analysis.
+
+% ===================== PUBLICATIONS =====================
+\cvsection{Publications}
+
+{\small Complete and current list:
+\href{https://scholar.google.com/citations?user=eXeYCBgAAAAJ}{Google Scholar} $\cdot$
+\href{https://dblp.org/pid/211/7543.html}{DBLP}}\\[0.7em]
+
+\textbf{\small Refereed Conferences}\\[0.45em]
+
+\pub{[C7]}{Umesh Bhatt and \me. On Designing a Compaction Strategy for Enhanced LevelDB Read Performance.}{ACM CoDS-COMAD, 2024. \href{https://doi.org/10.1145/3703323.3703707}{doi:10.1145/3703323.3703707}}
+
+\pub{[C6]}{Kamal Kant, \me\ and Udai Shanker. A Journey from Commit Processing in Distributed Databases to Consensus in Blockchain.}{IEEE International Conference on Data Engineering (ICDE), 2022. \href{https://doi.org/10.1109/ICDE53745.2022.00306}{doi:10.1109/ICDE53745.2022.00306}}
+
+\pub{[C5]}{\me\ and Udai Shanker. Performance Issues in Scheduling of Real-Time Transactions.}{26th International Conference on Database Systems for Advanced Applications (DASFAA), Taipei, 2021. \href{https://doi.org/10.1007/978-3-030-73200-4_51}{doi:10.1007/978-3-030-73200-4\_51}}
+
+\pub{[C4]}{Ritesh Kumar Singh, \me\ and Udai Shanker. A Non-Database Operations Aware Priority Ceiling Protocol for Hard Real-Time Database Systems.}{ICCCNT, IIT Kanpur, 2019. \href{https://doi.org/10.1109/ICCCNT45670.2019.8944482}{doi:10.1109/ICCCNT45670.2019.8944482}}
+
+\pub{[C3]}{\me\ and Udai Shanker. CART: A Real-Time Concurrency Control Protocol.}{22nd International Database Engineering \& Applications Symposium (IDEAS), Italy, 2018. \href{https://doi.org/10.1145/3216122.3216161}{doi:10.1145/3216122.3216161}}
+
+\pub{[C2]}{\me\ and Udai Shanker. Priority Inversion in DRTDBS: Challenges and Resolutions.}{ACM India Joint International Conference on Data Science \& Management of Data (CoDS-COMAD), Goa, 2018. \href{https://doi.org/10.1145/3152494.3167976}{doi:10.1145/3152494.3167976}}
+
+\pub{[C1]}{\me\ and Udai Shanker. A One Phase Priority Inheritance Commit Protocol.}{14th International Conference on Distributed Computing and Internet Technology (ICDCIT), 2018. \href{https://doi.org/10.1007/978-3-319-72344-0_24}{doi:10.1007/978-3-319-72344-0\_24}}
+
+\vspace{0.4em}
+\textbf{\small Refereed Journals}\\[0.45em]
+
+\pub{[J10]}{Suneel Kumar, \me\ and Umesh Bhatt. On Enhancing E-Commerce Shipping Policies with Blockchain and Recommender Systems.}{SN Computer Science, 6(2), 2025. \href{https://doi.org/10.1007/s42979-025-03687-x}{doi:10.1007/s42979-025-03687-x}}
+
+\pub{[J9]}{Suneel Kumar and \me. WSC: A Crowd-Powered Framework for Mapping Decomposable Complex-Task With Worker-Set.}{Concurrency and Computation: Practice and Experience, 36(28), 2024. \href{https://doi.org/10.1002/cpe.8305}{doi:10.1002/cpe.8305}}
+
+\pub{[J8]}{\me\ and Udai Shanker. A Priority Inheritance Centered Locking Protocol for DRTDBS.}{Wireless Personal Communications, 130(2), 2023. \href{https://doi.org/10.1007/s11277-023-10316-4}{doi:10.1007/s11277-023-10316-4}}
+
+\pub{[J7]}{\me\ and Udai Shanker. On Developing Framework for Schedulable Priority-Driven Systems: A Futuristic Review.}{Wireless Personal Communications, 128(4), 2023. \href{https://doi.org/10.1007/s11277-022-10082-9}{doi:10.1007/s11277-022-10082-9}}
+
+\pub{[J6]}{\me\ and Udai Shanker. RAPID: A Real-Time Commit Protocol.}{Journal of King Saud University -- Computer and Information Sciences (Elsevier), 34(6), 2022. \href{https://doi.org/10.1016/j.jksuci.2020.04.006}{doi:10.1016/j.jksuci.2020.04.006}}
+
+\pub{[J5]}{\me\ and Udai Shanker. STEP: A Concomitant Protocol for Real-Time Applications.}{Wireless Personal Communications, 122(4), 2022. \href{https://doi.org/10.1007/s11277-021-09112-9}{doi:10.1007/s11277-021-09112-9}}
+
+\pub{[J4]}{\me\ and Udai Shanker. A Contention Aware EQS Priority Assignment Heuristic for Cohorts in DRTDBS.}{The Journal of Supercomputing (Springer), 77(7), 2021. \href{https://doi.org/10.1007/s11227-020-03530-5}{doi:10.1007/s11227-020-03530-5}}
+
+\pub{[J3]}{Anupama Arun, \me\ and Udai Shanker. A Multi-Replica-Centered Commit Protocol for Distributed Real-Time and Embedded Applications.}{International Journal of System Dynamics Applications, 10(4), 2021. \href{https://doi.org/10.4018/ijsda.20211001.oa18}{doi:10.4018/ijsda.20211001.oa18}}
+
+\pub{[J2]}{\me\ and Udai Shanker. Transaction Scheduling Protocols for Controlling Priority Inversion: A Review.}{Computer Science Review (Elsevier), 35, 2020. \href{https://doi.org/10.1016/j.cosrev.2019.100215}{doi:10.1016/j.cosrev.2019.100215}}
+
+\pub{[J1]}{\me, Aman Kumar Pandey and Udai Shanker. SP-LIFT: A Serial Parallel Linear and Fast-Paced Recovery-Centered Transaction Commit Protocol.}{SN Computer Science, 1(3), 2020. \href{https://doi.org/10.1007/s42979-020-00193-0}{doi:10.1007/s42979-020-00193-0}}
+
+\vspace{0.4em}
+\textbf{\small Preprints}\\[0.45em]
+
+\pub{[P2]}{Vishal Chakraborty, Youri Kaminsky, Arnav Abhijit Dhariya, Sharad Mehrotra, Felix Naumann and \me. Inference-Aware \& Privacy-Preserving Deletion in Databases.}{arXiv preprint, 2026. \href{https://doi.org/10.48550/arXiv.2604.00326}{doi:10.48550/arXiv.2604.00326}}
+
+\pub{[P1]}{Umesh Bhatt and \me. Empirical Analysis of EIP-3675: Miner Dynamics, Transaction Fees, and Transaction Time.}{arXiv preprint, 2024. \href{https://doi.org/10.48550/arXiv.2403.17885}{doi:10.48550/arXiv.2403.17885}}
+
+\vspace{0.4em}
+\textbf{\small Edited Book and Book Chapters}\\[0.45em]
+
+\pub{[B1]}{Udai Shanker and \me\ (Editors). Handling Priority Inversion in Time-Constrained Distributed Databases.}{IGI Global, Advances in Data Mining and Database Management book series, 2020. ISBN 9781799824916}
+
+\pub{[B2]}{\me\ and Udai Shanker. EDRC: An Early Data Lending Based Real-Time Commit Protocol.}{Encyclopedia of Information Science and Technology, 5th ed., IGI Global, 2021, pp.\ 800--814}
+
+\pub{[B3]}{\me\ and Udai Shanker. MDTF: A Contention Aware Priority Assignment Policy for Cohorts in DRTDBS.}{Encyclopedia of Organizational Knowledge, Administration, and Technologies, IGI Global, 2020, pp.\ 742--756}
+
+\pub{[B4]}{\me\ and Udai Shanker. Causes, Effects and Consequences of Priority Inversion in Transaction Processing.}{In: Handling Priority Inversion in Time-Constrained Distributed Databases, IGI Global, 2020}
+
+% ===================== TEACHING =====================
+% Once real courses are listed here, move this out of \draftonly so it publishes.
+\draftonly{
+\cvsection{Teaching}
+
+\cvrow{2020 -- present}{
+  \textbf{Banaras Hindu University} --- Department of Computer Science (MMV)\\
+  \todo{course names, codes, levels, and terms taught}
+}
+}
+
+% ===================== SUPERVISION =====================
+% This section publishes: the UC Irvine mentoring line is real content.
+\cvsection{Research Supervision}
+
+\todo{PhD / M.Tech.\ / undergraduate students supervised, with names, years, and thesis
+topics. Suneel Kumar and Umesh Bhatt are first authors on four recent papers --- if they
+are your students, say so explicitly; first-authorship by supervised students is strong
+evidence of independent research leadership.}\draftonly{\\[0.4em]}
+Mentoring undergraduate researchers at UC Irvine on a model for predicting Ethereum
+price movements by combining on-ledger data with external sources.
+
+% ===================== SERVICE =====================
+\draftonly{
+\cvsection{Professional Service}
+
+\todo{journal reviewing, programme committee membership, session chairing, departmental
+and institutional administrative roles at BHU.}
+}
+
+% ===================== TALKS =====================
+\draftonly{
+\cvsection{Invited Talks}
+
+\todo{e.g.\ guest lecture on ``Emerging Frontiers in AI'', KCC Institutes. Add venue,
+title, and date for each.}
+}
+
+\end{document}

@@ -110,6 +110,11 @@ header.hero{padding:4.5rem 0 3rem; border-bottom:1px solid var(--rule)}
   border-radius:999px; font-size:.83rem; font-weight:500; color:var(--muted); background:var(--surface);
 }
 .links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+.links a.primary{
+  background:var(--accent); border-color:var(--accent);
+  color:var(--bg); font-weight:600;
+}
+.links a.primary:hover{opacity:.88; color:var(--bg)}
 
 section{padding:3.5rem 0; border-bottom:1px solid var(--rule)}
 section:last-of-type{border-bottom:0}
@@ -194,6 +199,7 @@ footer p{max-width:none; margin:0}
       usable without exposing the people they describe.
     </p>
     <div class="links">
+      <a class="primary" href="cv.pdf">Curriculum Vitae</a>
       <a href="https://scholar.google.com/citations?user=eXeYCBgAAAAJ">Google Scholar</a>
       <a href="https://dblp.org/search?q=Sarvesh+Pandey">DBLP</a>
       <a href="https://github.com/Sarvesh-CSE">GitHub</a>

@@ -1,3 +1,6 @@
 profile.md
 .DS_Store
 Thumbs.db
+cv/*
+!cv/cv.tex
+!cv/build.sh
